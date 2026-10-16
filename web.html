@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>جمعية لمه | LAMMA</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="rtl">
+    <div id="loginScreen" class="login-screen">
+      <div class="login-card">
+        <div class="brand-wrap login-brand">
+          <div class="brand-mark">L</div>
+          <div class="brand-text">
+            <strong data-i18n="brandName">جمعية لمه</strong>
+            <span data-i18n="brandSub">منصة ادخار وتحويلات</span>
+          </div>
+        </div>
+
+        <h2>تسجيل الدخول</h2>
+
+        <form id="loginForm" class="login-form">
+          <label>
+            <span>اسم المستخدم</span>
+            <input id="username" type="text" placeholder="أدخل اسم المستخدم" />
+          </label>
+          <label>
+            <span>كلمة المرور</span>
+            <input id="password" type="password" placeholder="أدخل كلمة المرور" />
+          </label>
+          <button type="submit" class="primary-btn login-btn">تسجيل الدخول</button>
+          <div class="signup-link-wrap">
+            <span>ليس لديك حساب؟</span>
+            <a href="#" id="showSignup" class="signup-link">إنشاء حساب جديد</a>
+          </div>
+          <p id="loginError" class="login-error" aria-live="polite"></p>
+        </form>
+
+        <form id="signupForm" class="login-form hidden">
+          <label>
+            <span>رقم الهاتف</span>
+            <input id="signupPhone" type="tel" placeholder="أدخل رقم الهاتف" />
+          </label>
+          <label>
+            <span>كلمة المرور</span>
+            <input id="signupPassword" type="password" placeholder="أدخل كلمة المرور" />
+          </label>
+          <button type="submit" class="primary-btn login-btn">إنشاء الحساب</button>
+          <div class="signup-link-wrap">
+            <a href="#" id="showLogin" class="signup-link">العودة لتسجيل الدخول</a>
+          </div>
+          <p id="signupMessage" class="login-error" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <div id="appShell" class="app-shell hidden">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">L</div>
+          <div class="brand-text">
+            <strong data-i18n="brandName">جمعية لمه</strong>
+            <span data-i18n="brandSub">منصة ادخار وتحويلات</span>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#features" data-i18n="navFeatures">المزايا</a>
+          <a href="#schedules" data-i18n="navSchedules">الجدولة</a>
+          <a href="#tracking" data-i18n="navTracking">التتبع</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="lang-switch" aria-label="Language switcher">
+            <button class="lang-btn active" data-lang="ar" type="button">AR</button>
+            <button class="lang-btn" data-lang="en" type="button">EN</button>
+          </div>
+          <button class="logout-btn" id="logoutBtn" type="button">تسجيل الخروج</button>
+          <button class="primary-btn" data-i18n="joinNow">انضم الآن</button>
+        </div>
+      </header>
+
+      <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow" data-i18n="eyebrow">موثوق • آمن • سريع</span>
+          <h1 data-i18n="heroTitle">ادخر بانتظام وحقق مكاسبك بثقة.</h1>
+          <p data-i18n="heroText">
+            منصة تجمع بين إدارة الجمعيات التساهمية، متابعة المدفوعات، وتحديد دورة
+            التوزيع بطريقة شفافة وعادلة.
+          </p>
+
+          <div class="cta-row">
+            <a class="primary-btn" href="#memberForm" data-i18n="registerNow">سجل الآن</a>
+            <a class="secondary-btn" id="viewScheduleBtn" href="#tracking" data-i18n="viewSchedule">عرض الجدول</a>
+          </div>
+
+        </div>
+
+        <div class="member-box">
+          <div class="box-header">
+            <h2 data-i18n="joinTitle">انضم إلى الجمعية</h2>
+            <span class="status-dot"></span>
+          </div>
+
+          <form id="memberForm">
+            <div class="field-row one-col">
+              <label>
+                <span data-i18n="phone">رقم الهاتف</span>
+                <input
+                  type="tel"
+                  data-i18n-placeholder="phonePlaceholder"
+                  placeholder="9665xxxxxxxx"
+                />
+              </label>
+            </div>
+
+            <div class="field-row two-col">
+              <label>
+                <span data-i18n="schedule">نوع النظام</span>
+                <select id="scheduleType">
+                  <option value="monthly" data-i18n="monthlySchedule">شهري</option>
+                  <option value="semiMonthly" data-i18n="semiMonthlySchedule">نصف شهري</option>
+                  <option value="weekly" data-i18n="weeklySchedule">أسبوعي</option>
+                </select>
+              </label>
+              <label>
+                <span data-i18n="amount">المبلغ</span>
+                <input type="text" value="10 جنيه / يوم" readonly />
+              </label>
+            </div>
+
+            <div class="field-row one-col">
+              <label>
+                <span data-i18n="walletType">نوع المحفظة</span>
+                <select id="walletType">
+                  <option value="orange" data-i18n="walletOrange">اورنج كاش</option>
+                  <option value="vodafone" data-i18n="walletVodafone">فودافون كاش</option>
+                  <option value="etisalat" data-i18n="walletEtisalat">اتصالات كاش</option>
+                  <option value="instapay" data-i18n="walletInstaPay">انستاباي</option>
+                  <option value="wepay" data-i18n="walletWePay">WE Pay</option>
+                </select>
+              </label>
+            </div>
+
+            <button type="submit" class="primary-btn submit-btn" data-i18n="submitRequest">
+              إرسال الطلب
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <div class="section-title">
+          <span class="mini-tag" data-i18n="whyChoose">لماذا تختارنا</span>
+          <h2 data-i18n="featuresTitle">حل متكامل لإدارة الجمعية</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">✓</div>
+            <h3 data-i18n="transparent">شفافية كاملة</h3>
+            <p data-i18n="transparentText">تتبع مستمر لمدفوعات الأعضاء وتوزيع الجوائز بشكل عادلة.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">⏱</div>
+            <h3 data-i18n="flexible">جدولة مرنة</h3>
+            <p data-i18n="flexibleText">اختر بين دفعات شهرية، نصف شهرية أو أسبوعية وفقًا لميزانيتك.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3 data-i18n="secure">أمان عالي</h3>
+            <p data-i18n="secureText">مدفوعاتك محمية عبر منصات مضمونة وتجربة مستخدم موثوقة.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="schedules" class="schedule-section">
+        <div class="section-title">
+          <span class="mini-tag" data-i18n="plans">الخطط</span>
+          <h2 data-i18n="scheduleTitle">خيارات الدفع</h2>
+        </div>
+
+        <div class="schedule-grid">
+          <article class="schedule-card">
+            <div class="card-badge" data-i18n="monthlyBadge">شهري</div>
+            <h3 data-i18n="monthlyPlan">خطة شهرية</h3>
+            <div class="amount">10 <span>جنيه / يوم</span></div>
+            <ul>
+              <li data-i18n="monthlyItem1">تدفق نقدي منتظم</li>
+              <li data-i18n="monthlyItem2">مناسب للعائلات</li>
+              <li data-i18n="monthlyItem3">موافق عليه كل شهر</li>
+            </ul>
+          </article>
+
+          <article class="schedule-card featured">
+            <div class="card-badge" data-i18n="semiMonthlyBadge">نصف شهري</div>
+            <h3 data-i18n="semiMonthlyPlan">خطة نصف شهرية</h3>
+            <div class="amount">20 <span>جنيه / يوم</span></div>
+            <ul>
+              <li data-i18n="semiMonthlyItem1">دفعات متوازنة</li>
+              <li data-i18n="semiMonthlyItem2">مناسبة للرواتب</li>
+              <li data-i18n="semiMonthlyItem3">توزيع متكرر</li>
+            </ul>
+          </article>
+
+          <article class="schedule-card">
+            <div class="card-badge" data-i18n="weeklyBadge">أسبوعية</div>
+            <h3 data-i18n="weeklyPlan">خطة أسبوعية</h3>
+            <div class="amount">30 <span>جنيه / يوم</span></div>
+            <ul>
+              <li data-i18n="weeklyItem1">مرونة عالية</li>
+              <li data-i18n="weeklyItem2">مناسبة للأعمال</li>
+              <li data-i18n="weeklyItem3">مراقبة يومية</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="tracking" class="tracking-section">
+        <div class="tracking-header">
+          <div>
+            <span class="mini-tag" data-i18n="trackingLabel">التتبع</span>
+            <h2 data-i18n="trackingTitle">لوحة متابعة المشاركين</h2>
+          </div>
+          <div class="legend" aria-hidden="true"></div>
+        </div>
+
+        <div class="tracking-grid">
+          <div class="table-card">
+            <table>
+              <thead>
+                <tr>
+                  <th data-i18n="tableMember">الاسم</th>
+                  <th data-i18n="tableSchedule">النظام</th>
+                  <th data-i18n="tablePayment">الدفع اليومي</th>
+                  <th data-i18n="tableDue">المستحق</th>
+                  <th data-i18n="tablePaid">المدفوع</th>
+                  <th data-i18n="tableBalance">الباقي</th>
+                </tr>
+              </thead>
+              <tbody id="participantsTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="order-section">
+        <div class="section-title">
+          <span class="mini-tag" data-i18n="nextPayoutTitle">جدول ترتيب الدفع القادم</span>
+          <h2 data-i18n="orderTitle">ترتيب الاستلام حسب النظام</h2>
+        </div>
+
+        <div class="order-table-grid" id="cycleOrderFlow"></div>
+      </section>
+
+      </main>
+
+      <footer class="site-footer">
+        <p data-i18n="footerText">© 2026 جمعية الوفاء. جميع الحقوق محفوظة.</p>
+      </footer>
+    </div>
+
+    <button id="backToTopBtn" class="back-to-top" type="button" aria-label="العودة للأعلى">↑</button>
+
+    <script src="script.js"></button>
+  </body>
+</html>
